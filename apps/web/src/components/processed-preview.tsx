@@ -109,7 +109,7 @@ function PredictionResult({
       transition={{ delay: 0.16, duration: 0.32, ease: "easeOut" }}
       className="absolute top-1/2 right-0 flex w-1/2 -translate-y-[calc(50%+0.5rem)] flex-col items-center text-center"
     >
-      <p className="font-display text-chalk-muted text-xs sm:text-sm">I think you drew</p>
+      <p className="font-display text-chalk-muted mb-1.5 text-xs sm:text-sm">I think you drew</p>
       <motion.p
         initial={{ opacity: 0, scale: 0.72 }}
         animate={{ opacity: 1, scale: 1 }}
