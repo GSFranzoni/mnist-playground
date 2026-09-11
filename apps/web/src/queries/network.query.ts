@@ -4,7 +4,7 @@ import { queryOptions } from "@tanstack/react-query";
 async function loadNetwork() {
   await new Promise((resolve) => setTimeout(resolve, 1_000));
 
-  const response = await fetch("/artifacts/weights.json");
+  const response = await fetch(`${import.meta.env.BASE_URL}artifacts/weights.json`);
 
   if (!response.ok) {
     throw new Error("Could not load the trained weights");
