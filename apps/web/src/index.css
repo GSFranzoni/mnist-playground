@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #090a0d;
+  --color-canvas-light: rgb(31 34 40 / 42%);
+  --color-drawing: #0d0f13;
+  --color-chalk: #f2f4f8;
+  --color-chalk-muted: #a5aab6;
+  --color-chalk-faint: #666c78;
+  --color-control: #17191e;
+  --color-control-hover: #262930;
+  --color-ink: #fff;
+  --color-ink-muted: #edeef2;
+  --color-outline: rgb(255 255 255 / 14%);
+  --color-outline-strong: rgb(255 255 255 / 25%);
+  --color-frame: rgb(216 222 236 / 34%);
+  --color-frame-faint: rgb(216 222 236 / 12%);
+  --radius-control: 9999px;
+  --shadow-control: 0 8px 30px rgb(0 0 0 / 18%);
+  --shadow-board: 0 26px 70px rgb(0 0 0 / 42%);
+  --font-display: ui-rounded, "Comic Sans MS", "Bradley Hand", system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+    margin: 0;
+  }
+
+  body {
+    background: var(--color-canvas);
+  }
+
+  button {
+    font: inherit;
+  }
+}
