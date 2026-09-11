@@ -108,7 +108,11 @@ export class DenseLayer implements Layer {
   }
 }
 
-export class SGD {
+export interface Optimizer {
+  step(parameters: readonly Parameter[]): void;
+}
+
+export class SGD implements Optimizer {
   private readonly learningRate: number;
 
   constructor(learningRate: number) {
