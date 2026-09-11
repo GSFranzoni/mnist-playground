@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const repositoryRoot = fileURLToPath(new URL("../", import.meta.url));
 const sourcePath = resolve(repositoryRoot, "artifacts/weights.json");
-const targetPath = resolve(repositoryRoot, "apps/web/public/weights.json");
+const targetPath = resolve(repositoryRoot, "apps/web/public/artifacts/weights.json");
 
 const source = Bun.file(sourcePath);
 

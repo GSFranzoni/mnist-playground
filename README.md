@@ -76,7 +76,7 @@ packages/neural-network  Browser-safe layers, inference, and MNIST topology
 packages/training        Bun-only CSV loading, training, evaluation, and terminal UI
 ```
 
-The web app loads its published weights from `apps/web/public/weights.json`. Training writes local output to `artifacts/weights.json`; after reviewing a run, use `bun run sync:weights` to publish that artifact to the web app. Training data and local artifacts are ignored by Git; use the download command above before running training or evaluation.
+The web app loads its published weights from `apps/web/public/artifacts/weights.json`. Training writes local output to `artifacts/weights.json`; after reviewing a run, use `bun run sync:weights` to publish that artifact to the web app. Training data and local artifacts are ignored by Git; use the download command above before running training or evaluation.
 
 ## Deployment
 
