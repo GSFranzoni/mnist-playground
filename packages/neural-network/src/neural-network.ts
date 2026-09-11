@@ -25,7 +25,7 @@ export class ReLULayer implements Layer {
   }
 
   backward(gradient: Vector): Vector {
-    return gradient.map((value, i) => (this.input[i]! > 0 ? value : 0));
+    return gradient.map((value, i) => (this.input[i] > 0 ? value : 0));
   }
 
   parameters(): Parameter[] {
@@ -63,10 +63,10 @@ export class DenseLayer implements Layer {
     const output = Array(this.outputSize).fill(0);
 
     for (let j = 0; j < this.outputSize; j++) {
-      let sum = this.biases[j]!;
+      let sum = this.biases[j];
 
       for (let i = 0; i < this.inputSize; i++) {
-        sum += this.weights[j]![i]! * input[i]!;
+        sum += this.weights[j][i] * input[i];
       }
 
       output[j] = sum;
@@ -80,14 +80,14 @@ export class DenseLayer implements Layer {
 
     for (let j = 0; j < this.outputSize; j++) {
       // ∂L/∂b_j
-      this.biasGradients[j] = outputGradient[j]!;
+      this.biasGradients[j] = outputGradient[j];
 
       for (let i = 0; i < this.inputSize; i++) {
         // ∂L/∂W_ji = ∂L/∂y_j * x_i
-        this.weightGradients[j]![i] = outputGradient[j]! * this.input[i]!;
+        this.weightGradients[j][i] = outputGradient[j] * this.input[i];
 
         // ∂L/∂x_i += ∂L/∂y_j * W_ji
-        inputGradient[i] += outputGradient[j]! * this.weights[j]![i]!;
+        inputGradient[i] += outputGradient[j] * this.weights[j][i];
       }
     }
 
@@ -98,7 +98,7 @@ export class DenseLayer implements Layer {
     return [
       ...this.weights.map((values, i) => ({
         values,
-        gradients: this.weightGradients[i]!,
+        gradients: this.weightGradients[i],
       })),
       {
         values: this.biases,
@@ -118,7 +118,7 @@ export class SGD {
   step(parameters: readonly Parameter[]): void {
     for (const { values, gradients } of parameters) {
       for (let i = 0; i < values.length; i++) {
-        values[i]! -= this.learningRate * gradients[i]!;
+        values[i] -= this.learningRate * gradients[i];
       }
     }
   }
@@ -190,7 +190,7 @@ export function softmax(logits: Vector): Vector {
 export function softmaxCrossEntropy(logits: Vector, target: number): LossResult {
   const probabilities = softmax(logits);
 
-  const loss = -Math.log(probabilities[target]!);
+  const loss = -Math.log(probabilities[target]);
 
   const gradient = probabilities.map((probability, index) =>
     index === target ? probability - 1 : probability,
