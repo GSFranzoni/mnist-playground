@@ -128,7 +128,7 @@ export class SGD implements Optimizer {
   }
 }
 
-export function randomWeights(inputSize: number, outputSize: number): number[][] {
+export function randomWeights(inputSize: number, outputSize: number): Matrix {
   const scale = Math.sqrt(2 / inputSize);
 
   return Array.from({ length: outputSize }, () =>
@@ -206,7 +206,7 @@ export function softmaxCrossEntropy(logits: Vector, target: number): LossResult 
   };
 }
 
-export function argmax(values: number[]): number {
+export function argmax(values: Vector): number {
   let maxIndex = 0;
 
   for (let i = 1; i < values.length; i++) {
