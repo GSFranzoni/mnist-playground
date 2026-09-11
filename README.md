@@ -6,6 +6,8 @@
 [![React](https://img.shields.io/badge/React-19-149ECA?logo=react&logoColor=white)](https://react.dev)
 [![Bun](https://img.shields.io/badge/Bun-workspaces-000?logo=bun&logoColor=white)](https://bun.sh)
 
+[Live demo →](https://gsfranzoni.github.io/mnist-playground/)
+
 MNIST Playground is a small, interactive digit-recognition experiment. Sketch a handwritten number from 0–9 and the browser preprocesses it into the same 28 × 28 pixel format used by MNIST before running inference with the included trained network.
 
 ## Support
